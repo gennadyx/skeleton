@@ -34,7 +34,6 @@ class CommandHandler
             $event->getIO()->write('Build successful!');
         } catch (\Exception $e) {
             $event->getIO()->writeError($e->getMessage());
-            $event->stopPropagation();
         }
     }
 }

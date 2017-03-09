@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\FilesystemAwareTrait;
 use Gennadyx\Skeleton\VarAwareInterface;
 use Gennadyx\Skeleton\VarAwareTrait;
 use Symfony\Component\Filesystem\Exception\IOException;
@@ -25,7 +26,8 @@ use Symfony\Component\Filesystem\Filesystem;
  */
 final class RemoveSkeletonDirectory implements ActionInterface, VarAwareInterface
 {
-    use VarAwareTrait;
+    use VarAwareTrait,
+        FilesystemAwareTrait;
 
     /**
      * Execute action
@@ -36,7 +38,7 @@ final class RemoveSkeletonDirectory implements ActionInterface, VarAwareInterfac
     public function execute()
     {
         try {
-            (new Filesystem())->remove($this->vars['skeleton']);
+            $this->fs->remove($this->vars['skeleton']);
         } catch (IOException $e) {
             throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
         }

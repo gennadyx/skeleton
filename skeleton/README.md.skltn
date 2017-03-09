@@ -57,7 +57,7 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 [ico-travis]: https://img.shields.io/travis/:vendor:/:name:/master.svg?style=flat
 [ico-coverage]: https://img.shields.io/scrutinizer/coverage/g/:vendor:/:name:.svg?style=flat
 [ico-code-quality-scrutinizer]: https://img.shields.io/scrutinizer/g/:vendor:/:name:.svg?style=flat
-[ico-code-quality-sensio]: https://img.shields.io/sensiolabs/i/:sensio_project.svg
+[ico-code-quality-sensio]: https://insight.sensiolabs.com/projects/:sensio_project:/mini.png
 [ico-downloads]: https://img.shields.io/packagist/dt/:vendor:/:name:.svg?style=flat
 
 [link-packagist]: https://packagist.org/packages/:vendor:/:name:

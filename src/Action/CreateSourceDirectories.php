@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\FilesystemAwareTrait;
 use Gennadyx\Skeleton\VarAwareInterface;
 use Gennadyx\Skeleton\VarAwareTrait;
 
@@ -23,7 +24,8 @@ use Gennadyx\Skeleton\VarAwareTrait;
  */
 final class CreateSourceDirectories implements ActionInterface, VarAwareInterface
 {
-    use VarAwareTrait;
+    use VarAwareTrait,
+        FilesystemAwareTrait;
 
     /**
      * Execute action
@@ -37,7 +39,7 @@ final class CreateSourceDirectories implements ActionInterface, VarAwareInterfac
             $directory = $this->vars['root'].'/'.$name;
 
             if (!is_dir($directory)) {
-                mkdir($directory);
+                $this->fs->mkdir($directory);
             }
         }
     }

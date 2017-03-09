@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\FilesystemAwareTrait;
 use Gennadyx\Skeleton\Exception\RuntimeException;
-use Gennadyx\Skeleton\Utils;
 use Gennadyx\Skeleton\VarAwareInterface;
 use Gennadyx\Skeleton\VarAwareTrait;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -27,7 +27,8 @@ use Symfony\Component\Serializer\Exception\UnexpectedValueException;
  */
 final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterface
 {
-    use VarAwareTrait;
+    use VarAwareTrait,
+        FilesystemAwareTrait;
 
     const IDEA_PATH             = '.idea';
     const COMPOSER_PROJECT_PATH = 'composer';
@@ -55,13 +56,14 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
 
     /**
      * @return void
+     * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
     private function removeComposerPluginDir()
     {
         $directory = $this->vars['root'].'/composer';
 
         if (is_dir($directory)) {
-            rmdir($directory);
+            $this->fs->remove($directory);
         }
     }
 

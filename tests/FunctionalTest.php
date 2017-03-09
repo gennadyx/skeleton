@@ -25,6 +25,6 @@ class FunctionalTest extends TestCase
 
     public function testPhpstorm()
     {
-        $this->executeTest('phpstorm', '/composer');
+        $this->executeTest('phpstorm', '/composer', true);
     }
 }

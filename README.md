@@ -68,14 +68,14 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 [ico-travis]: https://img.shields.io/travis/gennadyx/skeleton/master.svg?style=flat
 [ico-coverage]: https://img.shields.io/scrutinizer/coverage/g/gennadyx/skeleton.svg?style=flat
 [ico-code-quality-scrutinizer]: https://img.shields.io/scrutinizer/g/gennadyx/skeleton.svg?style=flat
-[ico-code-quality-sensio]: https://img.shields.io/sensiolabs/i/4f72c396-60f4-4e75-9e8e-8b8601b624f2.svg?style=flat
+[ico-code-quality-sensio]: https://insight.sensiolabs.com/projects/8a05f05b-d1c9-40b1-8c87-5a251f712f4d/mini.png
 [ico-downloads]: https://img.shields.io/packagist/dt/gennadyx/skeleton.svg?style=flat
 
 [link-packagist]: https://packagist.org/packages/gennadyx/skeleton
 [link-travis]: https://travis-ci.org/gennadyx/skeleton
 [link-coverage]: https://scrutinizer-ci.com/g/gennadyx/skeleton/code-structure
 [link-code-quality-scrutinizer]: https://scrutinizer-ci.com/g/gennadyx/skeleton
-[link-code-quality-sensio]: https://insight.sensiolabs.com/projects/4f72c396-60f4-4e75-9e8e-8b8601b624f2
+[link-code-quality-sensio]: https://insight.sensiolabs.com/projects/8a05f05b-d1c9-40b1-8c87-5a251f712f4d
 [link-downloads]: https://packagist.org/packages/gennadyx/skeleton
 [link-author]: http://gennadyx.tech
 [link-contributors]: https://github.com/gennadyx/skeleton/contributors

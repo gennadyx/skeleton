@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\FilesystemAwareTrait;
 use Gennadyx\Skeleton\Exception\RuntimeException;
 use Gennadyx\Skeleton\VarAwareInterface;
 use Gennadyx\Skeleton\VarAwareTrait;
@@ -26,7 +27,8 @@ use Symfony\Component\Finder\Finder;
  */
 final class SelfRemoving implements ActionInterface, VarAwareInterface
 {
-    use VarAwareTrait;
+    use VarAwareTrait,
+        FilesystemAwareTrait;
 
     /**
      * Function execute
@@ -38,15 +40,14 @@ final class SelfRemoving implements ActionInterface, VarAwareInterface
         $root = $this->vars['root'];
 
         try {
-            $filesystem = new Filesystem();
             $finder     = Finder::create()
                 ->files()
                 ->in($root)
                 ->exclude(basename($this->vars['skeleton']))
                 ->depth(0)
                 ->ignoreDotFiles(false);
-            $filesystem->remove($finder);
-            $filesystem->remove([$root.'/src', $root.'/tests']);
+            $this->fs->remove($finder);
+            $this->fs->remove([$root.'/src', $root.'/tests']);
         } catch (\Exception $e) {
             throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
         }

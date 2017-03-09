@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\FilesystemAwareTrait;
 use Gennadyx\Skeleton\VarAwareInterface;
 use Gennadyx\Skeleton\VarAwareTrait;
 use Stringy\StaticStringy;
@@ -26,7 +27,8 @@ use Symfony\Component\Finder\Finder;
  */
 final class InstallFiles implements ActionInterface, VarAwareInterface
 {
-    use VarAwareTrait;
+    use VarAwareTrait,
+        FilesystemAwareTrait;
 
     public function execute()
     {
@@ -36,7 +38,6 @@ final class InstallFiles implements ActionInterface, VarAwareInterface
                 ->files()
                 ->in($this->vars['skeleton'])
                 ->ignoreDotFiles(false);
-            $filesystem = new Filesystem();
 
             foreach ($finder as $file) {
                 $target = str_replace(
@@ -44,7 +45,7 @@ final class InstallFiles implements ActionInterface, VarAwareInterface
                     $this->vars['root'],
                     $file->getRealPath()
                 );
-                $filesystem->rename(
+                $this->fs->rename(
                     $file->getRealPath(),
                     (string)StaticStringy::removeRight($target, '.skltn'),
                     true
