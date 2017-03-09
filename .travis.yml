@@ -1,0 +1,17 @@
+sudo: false
+language: php
+php:
+- 7.0
+- 7.1
+matrix:
+  allow_failures:
+  - php: hhvm
+  fast_finish: true
+before_script:
+- composer install
+script: php vendor/bin/phpunit --configuration ./phpunit.xml.dist
+notifications:
+  email:
+    recipients:
+    - dev@gennadyx.tech
+    on_success: change

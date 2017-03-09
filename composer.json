@@ -1,0 +1,45 @@
+{
+    "name": "gennadyx/skeleton",
+    "type": "project",
+    "description": "Composer package skeleton",
+    "keywords": ["composer", "package", "skeleton", "skeleton"],
+    "homepage": "https://github.com/gennadyx/skeleton",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gennady Knyazkin",
+            "email": "dev@gennadyx.tech",
+            "homepage": "http://gennadyx.tech"
+        }
+    ],
+    "require": {
+        "php" : "^7.0|^7.1",
+        "symfony/serializer": "^3.2",
+        "symfony/finder": "^3.2",
+        "symfony/filesystem": "^3.2",
+        "danielstjules/stringy": "^2.3",
+        "symfony/process": "^3.2",
+        "mf/collections-php": "^1.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.3",
+        "phpunit/phpunit" : "^6.0",
+        "squizlabs/php_codesniffer": "^2.3",
+        "phpunit/php-code-coverage": "^5.0",
+        "phpspec/prophecy": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gennadyx\\Skeleton\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gennadyx\\Skeleton\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "php vendor/bin/phpunit --configuration ./phpunit.xml.dist --coverage-clover=coverage.clover",
+        "post-create-project-cmd": "Gennadyx\\Skeleton\\CommandHandler::handle"
+    }
+}
