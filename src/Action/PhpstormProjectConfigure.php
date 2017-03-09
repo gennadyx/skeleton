@@ -56,19 +56,6 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
 
     /**
      * @return void
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
-     */
-    private function removeComposerPluginDir()
-    {
-        $directory = $this->vars['root'].'/composer';
-
-        if (is_dir($directory)) {
-            $this->fs->remove($directory);
-        }
-    }
-
-    /**
-     * @return void
      * @throws RuntimeException
      */
     private function markSourceDirectories()
@@ -108,7 +95,7 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
      */
     private function getIdeaDirectory(): string
     {
-        return realpath($this->vars['root'].'/../'.self::IDEA_PATH);
+        return str_replace('/'.static::COMPOSER_PROJECT_PATH, '', $this->vars['root']).'/'.self::IDEA_PATH;
     }
 
     /**
