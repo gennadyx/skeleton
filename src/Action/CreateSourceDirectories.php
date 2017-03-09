@@ -40,6 +40,7 @@ final class CreateSourceDirectories implements ActionInterface, VarAwareInterfac
 
             if (!is_dir($directory)) {
                 $this->fs->mkdir($directory);
+                $this->fs->touch(sprintf('%s/.gitkeep', $directory));
             }
         }
     }
