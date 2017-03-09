@@ -27,6 +27,9 @@ trait FilesystemAwareTrait
      */
     protected $fs;
 
+    /**
+     * Initialize instance of \Symfony\Component\Filesystem\Filesystem
+     */
     public function __construct()
     {
         $this->fs = new Filesystem();
