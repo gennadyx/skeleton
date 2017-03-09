@@ -71,6 +71,6 @@ final class ComposerInstall implements ActionInterface, EventAwareInterface
      */
     public function getPriority(): int
     {
-        return PHP_INT_MAX - 1;
+        return PHP_INT_MAX;
     }
 }

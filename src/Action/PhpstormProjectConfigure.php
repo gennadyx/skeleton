@@ -160,6 +160,6 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
      */
     public function getPriority(): int
     {
-        return PHP_INT_MAX;
+        return PHP_INT_MAX - 1;
     }
 }
