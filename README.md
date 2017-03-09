@@ -43,6 +43,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Testing
 
 ``` bash
+$ composer require --dev gennadyx/skeleton-tests
 $ composer test
 ```
 
