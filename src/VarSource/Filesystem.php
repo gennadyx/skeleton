@@ -27,43 +27,18 @@ class Filesystem extends AbstractSource
      */
     protected function preload(): array
     {
-        $root = $this->getRoot();
-        $skeleton = $this->getSkeleton($root);
+        $root = realpath('.');
+        $skeleton = sprintf('%s/skeleton', $root);
+        $name = basename($root);
+
+        if ('composer' === $name) {
+            $name = basename(realpath('..'));
+        }
 
         return [
             'root'     => $root,
             'skeleton' => $skeleton,
-            'name'     => basename($root),
+            'name'     => $name,
         ];
-    }
-
-    /**
-     * @return string
-     */
-    protected function getRoot(): string
-    {
-        $root = realpath('.');
-
-        if ('composer' === basename($root)) {
-            $root = realpath('..');
-        }
-
-        return $root;
-    }
-
-    /**
-     * @param string $root
-     *
-     * @return string
-     */
-    protected function getSkeleton(string $root): string
-    {
-        $path = '/skeleton';
-
-        if (is_dir($root.'/composer')) {
-            $path = '/composer'.$path;
-        }
-
-        return $root.$path;
     }
 }

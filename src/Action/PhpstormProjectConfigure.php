@@ -41,15 +41,9 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
      */
     public function execute()
     {
-        $io = $this->event->getIO();
-        $io->write($this->getIdeaDirectory());
-        $io->write($this->getProjectFile());
-        //if (!$this->canExecute()) {
-        //    return;
-        //}
-
-        //$this->removeComposerPluginDir();
-        $this->markSourceDirectories();
+        if ($this->canExecute()) {
+            $this->markSourceDirectories();
+        }
     }
 
     /**
@@ -114,7 +108,7 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
      */
     private function getIdeaDirectory(): string
     {
-        return $this->vars['root'].'/'.self::IDEA_PATH;
+        return realpath($this->vars['root'].'/../'.self::IDEA_PATH);
     }
 
     /**
