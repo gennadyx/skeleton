@@ -22,7 +22,7 @@
         "mf/collections-php": "^1.0"
     },
     "require-dev": {
-        "gennadyx/skeleton-tests": "self.version"
+        "gennadyx/skeleton-tests": "dev-master"
     },
     "autoload": {
         "psr-4": {
