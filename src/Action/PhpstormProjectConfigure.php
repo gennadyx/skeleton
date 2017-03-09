@@ -98,6 +98,7 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
             ];
 
             file_put_contents($this->getProjectFile(), $encoder->encode($data, 'xml'));
+            exit();
         } catch (UnexpectedValueException $e) {
             throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
         }
