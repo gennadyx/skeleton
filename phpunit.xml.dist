@@ -1,13 +1,12 @@
 <phpunit bootstrap="./vendor/autoload.php" colors="true">
     <testsuites>
         <testsuite name="PackageSkeleton Test Case">
-            <directory suffix=".php">./tests</directory>
+            <directory suffix=".php">vendor/gennadyx/skeleton-tests/tests</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <exclude>
-                <file>./src/Action/ComposerInstall.php</file>
                 <directory>./src/Exception</directory>
             </exclude>
             <directory>./src</directory>

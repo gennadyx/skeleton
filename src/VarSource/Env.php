@@ -44,7 +44,7 @@ class Env extends AbstractSource
      */
     protected function find(string $name)
     {
-        $value = $this->getEnv(sprintf(self::TEMPLATE, $name));
+        $value = $this->getEnv(sprintf(self::TEMPLATE, strtoupper($name)));
 
         if (null === $value && isset($this->customEnv[$name])) {
             $value = $this->getEnv($this->customEnv[$name]);
