@@ -14,10 +14,9 @@ declare(strict_types = 1);
 namespace Gennadyx\Skeleton\Action;
 
 use Gennadyx\Skeleton\Action\Traits\FilesystemAwareTrait;
+use Gennadyx\Skeleton\Action\Traits\VarAwareTrait;
 use Gennadyx\Skeleton\VarAwareInterface;
-use Gennadyx\Skeleton\VarAwareTrait;
 use Stringy\StaticStringy;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 /**

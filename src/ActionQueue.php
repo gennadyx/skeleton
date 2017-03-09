@@ -76,7 +76,7 @@ class ActionQueue extends ListCollection
      *
      * @return array|ActionInterface[]
      */
-    private static function sortByPriority(array $actions): array
+    protected static function sortByPriority(array $actions): array
     {
         usort($actions, function (ActionInterface $a, ActionInterface $b) {
             return $a->getPriority() <=> $b->getPriority();

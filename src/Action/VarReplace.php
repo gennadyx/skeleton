@@ -13,9 +13,9 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\VarAwareTrait;
 use Gennadyx\Skeleton\Exception\RuntimeException;
 use Gennadyx\Skeleton\VarAwareInterface;
-use Gennadyx\Skeleton\VarAwareTrait;
 use Symfony\Component\Finder\Finder;
 
 /**

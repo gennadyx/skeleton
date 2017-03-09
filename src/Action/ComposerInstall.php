@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\EventAwareTrait;
 use Gennadyx\Skeleton\EventAwareInterface;
-use Gennadyx\Skeleton\EventAwareTrait;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
 

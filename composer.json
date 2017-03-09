@@ -26,7 +26,8 @@
         "phpunit/phpunit" : "^6.0",
         "squizlabs/php_codesniffer": "^2.3",
         "phpunit/php-code-coverage": "^5.0",
-        "phpspec/prophecy": "^1.7"
+        "phpspec/prophecy": "^1.7",
+        "skagarwal/reflection": "^1.0"
     },
     "autoload": {
         "psr-4": {

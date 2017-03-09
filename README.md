@@ -23,7 +23,7 @@ This package provides the handler for the 'create-project' command, which automa
 <b>author_name</b>         'user.name' from git config or vendor
 <b>author_email</b>        'user.email' from git config
 <b>author_homepage</b>     https://github.com/vendor
-<b>namespace</b>           Vendor\\Package or Vendor\\Package\\Name
+<b>namespace</b>           Vendor\\Package or Vendor\\PackageName
 <b>tests_namespace</b>     Vendor\\Package\\Tests
 </pre>
 
