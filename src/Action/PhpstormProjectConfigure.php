@@ -13,8 +13,10 @@ declare(strict_types = 1);
 
 namespace Gennadyx\Skeleton\Action;
 
+use Gennadyx\Skeleton\Action\Traits\EventAwareTrait;
 use Gennadyx\Skeleton\Action\Traits\FilesystemAwareTrait;
 use Gennadyx\Skeleton\Action\Traits\VarAwareTrait;
+use Gennadyx\Skeleton\EventAwareInterface;
 use Gennadyx\Skeleton\Exception\RuntimeException;
 use Gennadyx\Skeleton\VarAwareInterface;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -25,10 +27,11 @@ use Symfony\Component\Serializer\Exception\UnexpectedValueException;
  *
  * @author Gennady Knyazkin <dev@gennadyx.tech>
  */
-final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterface
+final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterface, EventAwareInterface
 {
     use VarAwareTrait,
-        FilesystemAwareTrait;
+        FilesystemAwareTrait,
+        EventAwareTrait;
 
     const IDEA_PATH             = '.idea';
     const COMPOSER_PROJECT_PATH = 'composer';
@@ -38,11 +41,14 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
      */
     public function execute()
     {
-        if (!$this->canExecute()) {
-            return;
-        }
+        $io = $this->event->getIO();
+        $io->write($this->getIdeaDirectory());
+        $io->write($this->getProjectFile());
+        //if (!$this->canExecute()) {
+        //    return;
+        //}
 
-        $this->removeComposerPluginDir();
+        //$this->removeComposerPluginDir();
         $this->markSourceDirectories();
     }
 
@@ -98,7 +104,6 @@ final class PhpstormProjectConfigure implements ActionInterface, VarAwareInterfa
             ];
 
             file_put_contents($this->getProjectFile(), $encoder->encode($data, 'xml'));
-            exit();
         } catch (UnexpectedValueException $e) {
             throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
         }
